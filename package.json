@@ -1,30 +1,37 @@
 {
-  "name": "bankline-api",
-  "version": "1.0.0",
-  "description": "Api para controle de conta corrente, cadastro de usuarios, depositos e tranferencias entre contas banco e credito ",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon index.js",
-    "migration": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate"
-  },
-  "author": "Grupo Undefined",
-  "license": "ISC",
-  "dependencies": {
-    "@hapi/hapi": "^20.1.1",
-    "dotenv": "^8.2.0",
-    "pg": "^8.5.1",
-    "pg-hstore": "^2.3.3",
-    "sequelize": "^6.6.1",
-    "uuidv4": "^6.2.6"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7",
-    "sequelize-cli": "^6.2.0"
-  },
-  "imports": {
-    "#repository/*": "./src/repositories/*-repository.js",
-    "#service/*": "./src/services/*-service.js",
-    "#model/*": "./src/models/*-model.js",
-    "#route/*": "./src/routes/*-routes.js"
-  }
+    "name": "bankline-api",
+    "version": "1.0.0",
+    "description": "Api para controle de conta corrente, cadastro de usuarios, depositos e tranferencias entre contas banco e credito ",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "pretest": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate",
+        "test": "mocha --reports"
+    },
+    "author": "Grupo Undefined",
+    "license": "ISC",
+    "dependencies": {
+        "@hapi/hapi": "^20.1.1",
+        "dotenv": "^8.2.0",
+        "pg": "^8.5.1",
+        "pg-hstore": "^2.3.3",
+        "sequelize": "^6.6.1",
+        "uuidv4": "^6.2.6",
+        "mocha": "^8.3.2",
+        "@hapi/boom": "^9.1.2",
+        "chai": "^4.3.4",
+        "mongoose": "^5.12.2",
+        "joi": "^17.4.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7",
+        "sequelize-cli": "^6.2.0",
+        "sinon": "^10.0.0"
+    },
+    "imports": {
+        "#repository/*": "./src/repositories/*-repository.js",
+        "#service/*": "./src/services/*-service.js",
+        "#model/*": "./src/models/*-model.js",
+        "#route/*": "./src/routes/*-routes.js"
+    }
 }

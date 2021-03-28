@@ -1,11 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
 const UsuarioSchema = require('../schemas/usuario-schema.json')
 
-class UsuarioDbModel extends Model{
+class UsuarioDbModel extends Model {
 
-    static init(sequelize){
+    static init(sequelize) {
 
-        const schema = {
+        super.init({
+
             id: {
                 type: DataTypes.UUIDV4,
                 primaryKey: true
@@ -13,13 +14,12 @@ class UsuarioDbModel extends Model{
             login: DataTypes.STRING,
             senha: DataTypes.STRING,
             active: DataTypes.BOOLEAN
-        }
 
-        super.init(schema, { sequelize, modelName: UsuarioSchema.tableName })
+        }, { sequelize, tableName: 'usuario' })
     }
 
-    static associate(models){
-        this.belongsTo(models.pessoa, { foreignKey: 'usuario_id', as:'pessoa' })
+    static associate(models) {
+        this.belongsTo(models.PessoaDbModel, { foreignKey: 'pessoa_id', as: 'pessoa' })
     }
 }
 

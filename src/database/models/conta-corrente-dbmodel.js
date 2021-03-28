@@ -1,25 +1,23 @@
 const { Model, DataTypes } = require("sequelize");
-const ContaCorrenteSchema = require("../schemas/conta-corrente-schema.json")
-
 
 class ContaCorrenteDbModel extends Model {
 
-    static init(connection) {
+    static init(sequelize) {
 
-        const schema = {
+        super.init({
+
             id: {
                 type: DataTypes.UUIDV4,
                 primaryKey: true
             },
-            saldo: DataTypes.DECIMAL,
+            saldo: DataTypes.FLOAT,
             active: DataTypes.BOOLEAN
-        }
 
-        super.init(schema, { sequelize: connection, modelName: ContaCorrenteSchema.tableName })
+        }, { sequelize, tableName: 'conta_corrente' })
     }
 
-    static associate(models){
-        this.belongsTo(models.pessoa, { foreignKey: 'conta_corrente_id', as:'conta-corrente' })
+    static associate(models) {
+        this.belongsTo(models.PessoaDbModel, { foreignKey: 'pessoa_id', as: 'pessoa' })
     }
 }
 
