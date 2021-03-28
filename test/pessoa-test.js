@@ -81,7 +81,7 @@ describe("Testes de PESSOA", () => {
             assert.isTrue(true)
         })
 
-        it("Deve lançar exceção quando uma pessoa existe com o mesmo cpf", async() => {
+        it("Deve lançar exceção quando uma pessoa existe com o mesmo cpf", async () => {
 
             const payload = { nome: "REMETENTE", cpf: "11111111111", login: "remetente", senha: "teste" }
 
@@ -108,7 +108,7 @@ describe("Testes de PESSOA", () => {
 
     describe("INTEGRADOS", () => {
 
-        beforeEach(async() => {
+        beforeEach(async () => {
 
             this.pessoaService = new PessoaService();
 
@@ -123,36 +123,36 @@ describe("Testes de PESSOA", () => {
             assert.isTrue((this.pessoaOrigem != null && this.pessoaOrigem != null))
         })
 
-        afterEach(async() => {
+        afterEach(async () => {
             await this.pessoaService.remove(this.pessoaOrigem.id)
             await this.pessoaService.remove(this.pessoaDestino.id)
         })
 
-        it("Deve obter todas as pessoas na base de dados", async() => {
+        it("Deve obter todas as pessoas na base de dados", async () => {
 
             const result = await this.pessoaService.getAll()
 
             assert.isTrue(result.length == 2)
         })
 
-        it.only("Deve obter uma pessoa pelo id na base de dados", async() => {
+        it("Deve obter uma pessoa pelo id na base de dados", async () => {
 
             const result = await this.pessoaService.getById(this.pessoaOrigem.id)
 
             assert.isNotNull(result)
         })
 
-        it("Deve atualizar uma pessoa pelo id na base de dados", async() => {
+        it("Deve atualizar uma pessoa pelo id na base de dados", async () => {
 
             await this.pessoaService.update(this.pessoaOrigem.id, { nome: "ALTERADO", senha: "12345" })
         })
 
-        it("Deve inativar uma pessoa pelo id na base de dados", async() => {
+        it("Deve inativar uma pessoa pelo id na base de dados", async () => {
 
             await this.pessoaService.inactivate(this.pessoaOrigem.id)
         })
 
-        it("Deve lançar exceção quando uma pessoa existe com o mesmo cpf", async() => {
+        it("Deve lançar exceção quando uma pessoa existe com o mesmo cpf", async () => {
 
             const payload = { nome: "REMETENTE", cpf: "11111111111", login: "remetente", senha: "teste" }
 
@@ -167,6 +167,7 @@ describe("Testes de PESSOA", () => {
                 assert.isNotNull(err)
             }
         })
-
+        
     })
 })
+

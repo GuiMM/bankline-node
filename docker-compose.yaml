@@ -42,7 +42,7 @@ services:
     restart: always
     container_name: gama_postgres
     ports:
-      - 5443:5432
+      - 5432:5432
     environment:
       POSTGRES_PASSWORD: gama
 

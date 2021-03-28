@@ -22,7 +22,7 @@ class OperacaoService {
 
         let operacao = payload
 
-        if (!(payload instanceof OperacaoModel)) {
+        if(!(payload instanceof OperacaoModel)){
             operacao = new OperacaoModel(payload.tipo, payload.valor, payload.contaOrigemId, payload.contaDestinoId)
         }
 
@@ -44,7 +44,7 @@ class OperacaoService {
     }
 
     async retirada(operacao) {
-
+        
         const contaCorrente = await this.contaCorrenteRepository.getById(operacao.contaOrigemId)
 
         if (contaCorrente.saldo < operacao.valor)
@@ -86,7 +86,7 @@ class OperacaoService {
 
             let cd = await this.contaCorrenteRepository.getById(operacao.contaDestinoId)
 
-            if (co.saldo < operacao.valor)
+            if(co.saldo < operacao.valor)
                 throw Boom.badRequest(Messages.Operacao.SaldoInsuficiente)
 
             co.saldo = co.saldo - operacao.valor
@@ -102,7 +102,7 @@ class OperacaoService {
             await transaction.commit()
 
         } catch (err) {
-
+            
             await transaction.rollback()
 
             throw err

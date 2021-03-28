@@ -1,6 +1,6 @@
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-      await queryInterface.createTable('usuario',
+      await queryInterface.createTable('conta_corrente',
         {
           id: {
             primaryKey: true,
@@ -8,20 +8,17 @@ module.exports = {
             allowNull: false,
             defaultValue: Sequelize.UUIDV4
           },
-          login:{
-            type: Sequelize.STRING,
-            allowNull: false,
-          },
-          senha:{
-            type: Sequelize.STRING,
-            allowNull: false,
-          },
           pessoa_id:{
             type: Sequelize.UUID,
             allowNull: false,
             references: { model: 'pessoa', key: 'id'},
             onDelete: 'CASCADE',
             onUpdate: 'CASCADE',
+          },
+          saldo:{
+            type: Sequelize.FLOAT,
+            allowNull: false,
+            defaultValue: 0
           },
           created_at:{
             type: Sequelize.DATE,
@@ -41,7 +38,7 @@ module.exports = {
     },
   
     down: async (queryInterface, Sequelize) => {
-       await queryInterface.dropTable('usuario');
+       await queryInterface.dropTable('conta_corrente');
     }
   };
   

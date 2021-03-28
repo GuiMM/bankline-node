@@ -41,9 +41,9 @@ class PessoaService extends BaseService {
     }
 
     async getAll() {
-
+        
         const result = await super.getAll(['usuario', 'conta_corrente'])
-
+        console.log(result)
         return result.map(pessoa => {
             return {
                 nome: pessoa.nome,

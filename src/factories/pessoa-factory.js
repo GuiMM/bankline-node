@@ -2,9 +2,9 @@ const ContaCorrenteModel = require("../models/conta-corrente-model");
 const PessoaModel = require("../models/pessoa-model");
 const UsuarioModel = require("../models/usuario-model");
 
-class PessoaFactory {
+class PessoaFactory{
 
-    static ToModel(dbmodel) {
+    static ToModel(dbmodel){
 
         const usuario = new UsuarioModel(dbmodel['usuario'].dataValues.login, dbmodel['usuario'].dataValues.senha)
 
@@ -25,10 +25,10 @@ class PessoaFactory {
         delete pessoa.contaCorrente.pessoa_id
 
         return pessoa
-    }
+    }   
 
 
-    static ToDb(pessoaModel) {
+    static ToDb(pessoaModel){
         return {
             id: pessoaModel.id,
             nome: pessoaModel.nome,
@@ -36,7 +36,9 @@ class PessoaFactory {
         }
     }
 
-
+    
 }
 
 module.exports = PessoaFactory
+
+

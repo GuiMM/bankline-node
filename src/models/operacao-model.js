@@ -5,8 +5,7 @@ const Boom = require("@hapi/boom")
 
 class OperacaoModel {
 
-    id
-    dateCreated
+    createdAt
     valor
     tipo
 
@@ -15,8 +14,8 @@ class OperacaoModel {
 
     constructor(tipo, valor, contaOrigemId, contaDestinoId=null){
 
-        this.id = uuid()
-        this.dateCreated = Date.now()
+        this._id = uuid()
+        this.createdAt = Date.now()
         this.tipo = tipo
         this.valor = valor
         this.contaOrigemId = contaOrigemId

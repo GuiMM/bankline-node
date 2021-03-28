@@ -1,5 +1,5 @@
-const ContaCorrenteRepository = require("../repositories/conta-corrente-repository")
-const BaseService = require("./base-service")
+const ContaCorrenteRepository = require("../repositories/conta-corrente-repository.js")
+const BaseService = require("./base-service.js")
 
 class ContaCorrenteService extends BaseService {
 

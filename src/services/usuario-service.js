@@ -1,13 +1,13 @@
 const UsuarioRepository = require("../repositories/usuario-repository");
 const BaseService = require("./base-service");
 
-class UsuarioService extends BaseService {
+class UsuarioService extends BaseService{
 
-    constructor() {
+    constructor(){
         super('Usuário', new UsuarioRepository())
     }
 
-    async getByLogin(login) {
+    async getByLogin(login){
         return await this.repository.getByLogin(login)
     }
 }

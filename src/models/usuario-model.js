@@ -5,6 +5,7 @@ class UsuarioModel extends BaseModel {
 
     login
     senha
+    pessoa_id
 
     constructor(login, senha){
         super()
