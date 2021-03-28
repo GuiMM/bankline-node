@@ -1,0 +1,29 @@
+const BaseModel = require("./base-model.js")
+const Boom = require('@hapi/boom')
+
+class UsuarioModel extends BaseModel {
+
+    login
+    senha
+
+    constructor(login, senha){
+        super()
+
+        this.login = login
+        this.senha = senha
+
+        this.validate()
+    }
+
+    validate(){
+
+        if(!this.login?.trim())
+            throw Boom.badRequest("Login não informado")
+
+        if(!this.senha?.trim())
+            throw Boom.badRequest("Senha não informada")
+    }
+
+}
+
+module.exports = UsuarioModel
