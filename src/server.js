@@ -15,7 +15,7 @@ class Server {
 
         const swaggerOptions = {
             info: {
-                title: 'Conta-Corrente API Documentation',
+                title: 'Grupo Undefined - Documentação da API Banckline',              
                 version: Pack.version,
             },
         };
