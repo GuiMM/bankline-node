@@ -204,6 +204,12 @@ As seguintes ferramentas foram usadas na construção do projeto:
 	🚧  faltando? 🚀 completar...  🚧
 </h4>
 
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
 
 ## Referências:
 - Layout do README - Link de outra turma de java, compartilhada em aula pelo professor Gleyson: 
