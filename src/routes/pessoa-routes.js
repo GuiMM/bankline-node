@@ -26,7 +26,7 @@ module.exports = [
         path: '/api/v1/pessoa',
         handler: PessoaHandler.getAll,
         config: {
-            description: 'Obtem todas as pessoas',
+            description: 'Listar todas as pessoas',
             notes: 'Retorna os dados de todas as pessoas',
             tags: ['api'], // ADD THIS TAG
         }
@@ -37,7 +37,7 @@ module.exports = [
         path: '/api/v1/pessoa/{id}',
         handler: PessoaHandler.getById,
         config: {
-            description: 'Obtem as pessoa por id',
+            description: 'Pesquisar pessoa por id',
             notes: 'Retorna os dados da pessoa',
             tags: ['api'], // ADD THIS TAG
         }
@@ -47,7 +47,7 @@ module.exports = [
         path: '/api/v1/pessoa/{id}',
         handler: PessoaHandler.update,
         config: {
-            description: 'Atualiza pessoa por id',
+            description: 'Atualiza login por id',
             notes: 'Retorna status OK',
             tags: ['api'], // ADD THIS TAG
             validate: {
@@ -67,7 +67,7 @@ module.exports = [
         path: '/api/v1/pessoa/{id}',
         handler: PessoaHandler.inactivate,
         config: {
-            description: 'Inativa pessoa por id',
+            description: 'Torna id inativo',
             notes: 'Retorna status OK',
             tags: ['api'], // ADD THIS TAG
             validate: {
